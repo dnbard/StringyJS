@@ -10,6 +10,26 @@
             });
         });
 
+        describe('#capitalize', function(){
+            it('should be a function', function () {
+                expect(Stringy.template).to.be.a('function');
+            });
+
+            it('should capitalize first letter in string', function () {
+                var input = 'capitalize first of the words',
+                    result = 'Capitalize first of the words';
+
+                expect(Stringy.capitalize(input)).to.be.equal(result);
+            });
+
+            it('should capitalize first letters in all words', function () {
+                var input = 'capitalize all the words',
+                    result = 'Capitalize All The Words';
+
+                expect(Stringy.capitalize(input, true)).to.be.equal(result);
+            });
+        });
+
         describe('#template', function(){
             it('should be a function', function () {
                 expect(Stringy.template).to.be.a('function');
@@ -63,6 +83,6 @@
                     result = input;
                 expect(Stringy.template(input)).to.be.equal(result);
             });
-        })
+        });
     });
 })();
