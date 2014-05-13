@@ -34,8 +34,25 @@
         });
     }
 
+    function contain(who, what){
+        if (typeof who !== 'string'){
+            throw new Error(template('First argument must be \'string\' instead of {type}',{type: typeof who}));
+        }
+
+        if (typeof what == 'string' || what instanceof RegExp){
+            if (typeof what == 'string'){
+                return who.indexOf(what) !== -1;
+            } else {
+                return what.test(who);
+            }
+        } else {
+            throw new Error(template('Second argument must be \'string\' or \'RegExp\' intead of {type}', {type: typeof what}));
+        }
+    }
+
     return {
         capitalize: capitalize,
+        contain: contain,
         template: template
     };
 }));
