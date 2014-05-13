@@ -20,6 +20,17 @@ Capitalizes the first character in the string. If `all` is true, all words in th
     => Capitalize All Words
 
 
+###Contain
+Returns true if the string matches search criteria(search for `what` in `where`). It may be a string or regex.
+
+    Stringy.contain(where, what);
+    Stringy.contain('Summertime', 'Summer');
+    => True
+
+    Stringy.contain('What is love?', /love/);
+    => True
+
+
 ###Templates
 Assigns variables to tokens in a string. If an object is passed, it's properties can be assigned using the object's keys `{name}`, otherwise it can be accessed by the argument number beginning with `0`.
 
